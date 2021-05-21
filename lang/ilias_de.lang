@@ -1,0 +1,35 @@
+obj_xlto#:#Litello
+obj_xlto_duplicate#:#Litello kopieren
+objs_xlto#:#Litello's
+objs_xlto_duplicate#:#Litello's kopieren
+rbac_create_xlto#:#Litello anlegen
+rep_robj_xlto_obj_xlto#:#Litello
+xlto_add#:#Hinzufügen
+xlto_delete#:#Löschen
+xlto_edit_permission#:#Rechte bearbeiten
+xlto_new#:#Litello anlegen
+xlto_read#:#Lesen
+xlto_visible#:#Sichtbar
+xlto_write#:#Bearbeiten
+config_configuration#:#Konfiguration
+config_configuration_saved#:#Konfiguration gespeichert
+config_save#:#Speichern
+config_customer#:#Kundenname
+config_customer_info#:#Der von Litello vergebene Kundenname. Z. B.: globus
+config_access_key#:#Access Key
+config_secret_key#:#Secret Key
+config_proxy_host#:#Proxy Host
+config_proxy_port#:#Proxy Port
+config_proxy_info#:#Füllen Sie dieses Feld nur aus, wenn ein Proxy verwendet wird, ansonsten lassen Sie es leer
+object_manage_contents#:#Bearbeiten
+object_offline#:#Offline
+object_permission_denied#:#Zugriff verweigert
+object_show_contents#:#Inhalte
+object_status#:#Status
+settings_cancel#:#Abbrechen
+settings_description#:#Beschreibung
+settings_online#:#Online
+settings_save#:#Speichern
+settings_saved#:#Einstellungen gespeichert
+settings_settings#:#Einstellungen
+settings_title#:#Titel
