@@ -9,7 +9,7 @@ Run the follow commands:
 ```bash
 mkdir -p Customizing/global/plugins/Services/Repository/RepositoryObject
 cd Customizing/global/plugins/Services/Repository/RepositoryObject
-git clone 
+git clone  https://github.com/Minervis-GmbH/Litello.git
 
 ```
 
