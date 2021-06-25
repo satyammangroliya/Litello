@@ -73,8 +73,6 @@ use srag\DIC\Litello\Exception\DICException;
  * Class ILIAS54DIC
  *
  * @package srag\DIC\Litello\DIC\Implementation
- *
- * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
 final class ILIAS54DIC extends AbstractDIC
 {

@@ -11,8 +11,6 @@ use srag\LibraryLanguageInstaller\Litello\LibraryLanguageInstaller;
  *
  * @package srag\RemovePluginDataConfirm\Litello
  *
- * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
- *
  * @access  namespace
  */
 trait BasePluginUninstallTrait

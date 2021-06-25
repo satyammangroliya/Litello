@@ -7,6 +7,13 @@ use GuzzleHttp\Psr7\Request;
 
 use GuzzleHttp\Client;
 
+
+/**
+ * Class LitelloClient
+ *
+ *
+ * @author Minervis GmbH <jephte.abijuru@minervis.com>
+ */
 class LitelloClient
 {
     private $signature;
@@ -20,13 +27,18 @@ class LitelloClient
         string $secret_key,
         string $userID,
         string $customer,
+        
         string $proxy_host = null,
-        int $proxy_port = null
+        int $proxy_port = null,
+        int $bookID = 0
     )
     {
         
         $credentials = new Credentials($access_key, $secret_key);
-        $body = array( "userId" => $userID);
+        $body = array( 
+            "userId" => $userID,
+            "bookId" => $bookID
+        );
         $headers=[
             "content-type"=>"application/json",
         ];
@@ -79,8 +91,6 @@ class LitelloClient
     }
     public function buildRequest($method, $uri, array $headers=[], $body=null){
         $this->request= new Request($method, $uri, $headers, $body);
-                
-
     }
     public function setHTTPClient($client){
         $this->client=$client;

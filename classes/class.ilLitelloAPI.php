@@ -15,17 +15,23 @@ class ilLitelloAPI
     
     private $client;
     private $webreader;
-    public function __construct()
+    private $logger;
+    private $settings; 
+    public function __construct($object = null)
     {
-        $settings = Litello::getInstance()->config();
-        $access_key = $settings->getValue("access_key");
-        $secret_key = $settings->getValue("secret_key");
-        $customer = $settings->getValue("customer");
-        $userID = "Demouser";
-        $proxy_host = $settings->getValue("proxy_host");
-        $proxy_port = $settings->getValue("proxy_port");
-        $this->client=  new LitelloClient($access_key, $secret_key, $userID, $customer, $proxy_host, $proxy_port);
-        $this->webreader="https://webreader.litello.com/";
+        global $DIC;
+        $this->logger =$DIC->logger()->root();
+        $this->settings = Litello::getInstance()->config();
+        $access_key = $this->settings->getValue("access_key");
+        $secret_key = $this->settings->getValue("secret_key");
+        $customer = $this->settings->getValue("customer");
+        $proxy_host = $this->settings->getValue("proxy_host");
+        $proxy_port = $this->settings->getValue("proxy_port");
+        $this->setUserID();
+        $bookID = $object->getBookID();
+        $this->client=  new LitelloClient($access_key, $secret_key, $this->userID, $customer, $proxy_host, $proxy_port,$bookID);
+        $this->setWebreader();
+        
         
     }
 
@@ -33,29 +39,42 @@ class ilLitelloAPI
     {
         return $this->client->getToken();
     }
-    public function authenticateWebreader(){
-        $token=$this->getToken();
-        $this->client->buildRequest(
-            "GET",
-            "https://webreader.litello.com/authenticate/". $token,
-        );
-        $this->client->send();
+
+    public function getAuthenticatedWebreaderURL(){
+        
+        return  $this->webreader ."authentication/". $this->getToken();
+    }
+    public function setUserID($userID = null)
+    {
+        global $ilUser;
+        if (DEVMODE){
+            $this->userID ="Demouser";
+        }else{
+            $userLogin = $ilUser->getLogin();
+            $this->userID = $userLogin;
+        }
+        
     }
 
     public function getHomeURL(){
 
     }
-    public function setWebreader(string $webreader)
+
+    public function setWebreader()
     {
-        $this->webreader=$webreader;
-    }
-    public function getWebreader()
-    {
-        return $this->webreader;
+        $webreader = $this->settings->getValue('webreader');
+        if ($webreader=='' || $webreader == null){
+            $webreader = "https://webreader.litello.com/";
+        }
+        if (substr($webreader, -1)!= '/'){
+            $webreader = $webreader . "/";
+        }
+        $this->webreader =$webreader;
     }
     public function createBookURI(string $bookID)
     {
         
     }
+
 
 }

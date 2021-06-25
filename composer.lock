@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.183.0",
+            "version": "3.185.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "bf4a4e56859b89ab307033bf695467f6d6042dda"
+                "reference": "953bbd1b5f7fd3f1601ad0a83f93358f635c57f4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/bf4a4e56859b89ab307033bf695467f6d6042dda",
-                "reference": "bf4a4e56859b89ab307033bf695467f6d6042dda",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/953bbd1b5f7fd3f1601ad0a83f93358f635c57f4",
+                "reference": "953bbd1b5f7fd3f1601ad0a83f93358f635c57f4",
                 "shasum": ""
             },
             "require": {
@@ -89,7 +89,12 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2021-05-18T18:13:37+00:00"
+            "support": {
+                "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
+                "issues": "https://github.com/aws/aws-sdk-php/issues",
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.185.1"
+            },
+            "time": "2021-06-24T18:22:42+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -170,6 +175,10 @@
                 "rest",
                 "web service"
             ],
+            "support": {
+                "issues": "https://github.com/guzzle/guzzle/issues",
+                "source": "https://github.com/guzzle/guzzle/tree/7.3.0"
+            },
             "funding": [
                 {
                     "url": "https://github.com/GrahamCampbell",
@@ -239,6 +248,10 @@
             "keywords": [
                 "promise"
             ],
+            "support": {
+                "issues": "https://github.com/guzzle/promises/issues",
+                "source": "https://github.com/guzzle/promises/tree/1.4.1"
+            },
             "time": "2021-03-07T09:25:29+00:00"
         },
         {
@@ -310,20 +323,24 @@
                 "uri",
                 "url"
             ],
+            "support": {
+                "issues": "https://github.com/guzzle/psr7/issues",
+                "source": "https://github.com/guzzle/psr7/tree/1.8.2"
+            },
             "time": "2021-04-26T09:17:50+00:00"
         },
         {
             "name": "mtdowling/jmespath.php",
-            "version": "2.6.0",
+            "version": "2.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jmespath/jmespath.php.git",
-                "reference": "42dae2cbd13154083ca6d70099692fef8ca84bfb"
+                "reference": "9b87907a81b87bc76d19a7fb2d61e61486ee9edb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jmespath/jmespath.php/zipball/42dae2cbd13154083ca6d70099692fef8ca84bfb",
-                "reference": "42dae2cbd13154083ca6d70099692fef8ca84bfb",
+                "url": "https://api.github.com/repos/jmespath/jmespath.php/zipball/9b87907a81b87bc76d19a7fb2d61e61486ee9edb",
+                "reference": "9b87907a81b87bc76d19a7fb2d61e61486ee9edb",
                 "shasum": ""
             },
             "require": {
@@ -331,7 +348,7 @@
                 "symfony/polyfill-mbstring": "^1.17"
             },
             "require-dev": {
-                "composer/xdebug-handler": "^1.4",
+                "composer/xdebug-handler": "^1.4 || ^2.0",
                 "phpunit/phpunit": "^4.8.36 || ^7.5.15"
             },
             "bin": [
@@ -367,7 +384,11 @@
                 "json",
                 "jsonpath"
             ],
-            "time": "2020-07-31T21:01:56+00:00"
+            "support": {
+                "issues": "https://github.com/jmespath/jmespath.php/issues",
+                "source": "https://github.com/jmespath/jmespath.php/tree/2.6.1"
+            },
+            "time": "2021-06-14T00:11:39+00:00"
         },
         {
             "name": "psr/http-client",
@@ -416,6 +437,9 @@
                 "psr",
                 "psr-18"
             ],
+            "support": {
+                "source": "https://github.com/php-fig/http-client/tree/master"
+            },
             "time": "2020-06-29T06:28:15+00:00"
         },
         {
@@ -466,6 +490,9 @@
                 "request",
                 "response"
             ],
+            "support": {
+                "source": "https://github.com/php-fig/http-message/tree/master"
+            },
             "time": "2016-08-06T14:39:51+00:00"
         },
         {
@@ -506,20 +533,24 @@
                 }
             ],
             "description": "A polyfill for getallheaders.",
+            "support": {
+                "issues": "https://github.com/ralouphie/getallheaders/issues",
+                "source": "https://github.com/ralouphie/getallheaders/tree/develop"
+            },
             "time": "2019-03-08T08:55:37+00:00"
         },
         {
             "name": "srag/activerecordconfig",
-            "version": "0.20.4",
+            "version": "0.20.7",
             "source": {
                 "type": "git",
-                "url": "https://github.com/fluxfw/ActiveRecordConfig.git",
-                "reference": "40b7ae496598fafd12b0f91b63b875ded1ecac73"
+                "url": "https://github.com/fluxapps/ActiveRecordConfig.git",
+                "reference": "6c482f01d0bccf1d918bb4fdee9fbded2f9326e5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fluxfw/ActiveRecordConfig/zipball/40b7ae496598fafd12b0f91b63b875ded1ecac73",
-                "reference": "40b7ae496598fafd12b0f91b63b875ded1ecac73",
+                "url": "https://api.github.com/repos/fluxapps/ActiveRecordConfig/zipball/6c482f01d0bccf1d918bb4fdee9fbded2f9326e5",
+                "reference": "6c482f01d0bccf1d918bb4fdee9fbded2f9326e5",
                 "shasum": ""
             },
             "require": {
@@ -541,7 +572,7 @@
             },
             "autoload": {
                 "psr-4": {
-                    "srag\\ActiveRecordConfig\\Litello\\": "src/"
+                    "srag\\ActiveRecordConfig\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -550,33 +581,36 @@
             ],
             "authors": [
                 {
-                    "name": "studer + raimann ag - Team Custom 1",
-                    "email": "support-custom1@studer-raimann.ch",
-                    "homepage": "https://studer-raimann.ch",
+                    "name": "fluxlabs",
+                    "email": "support@fluxlabs.ch",
+                    "homepage": "https://fluxlabs.ch",
                     "role": "Developer"
                 }
             ],
             "description": "Simple ActiveRecord config for ILIAS plugins",
-            "homepage": "https://github.com/fluxfw/ActiveRecordConfig",
+            "homepage": "https://github.com/fluxapps/ActiveRecordConfig",
             "keywords": [
                 "ILIAS",
                 "activerecord",
                 "config"
             ],
-            "time": "2021-03-23T12:48:34+00:00"
+            "support": {
+                "source": "https://github.com/fluxapps/ActiveRecordConfig/tree/v0.20.7"
+            },
+            "time": "2021-06-04T08:20:11+00:00"
         },
         {
             "name": "srag/custominputguis",
-            "version": "0.42.6",
+            "version": "0.42.8",
             "source": {
                 "type": "git",
-                "url": "https://github.com/fluxfw/CustomInputGUIs.git",
-                "reference": "879ffdedfd47d799914b4c1e2ce6b5887dfee2b8"
+                "url": "https://github.com/fluxapps/CustomInputGUIs.git",
+                "reference": "31e9f653647690a51bee8993c5ba8460cb46ebaa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fluxfw/CustomInputGUIs/zipball/879ffdedfd47d799914b4c1e2ce6b5887dfee2b8",
-                "reference": "879ffdedfd47d799914b4c1e2ce6b5887dfee2b8",
+                "url": "https://api.github.com/repos/fluxapps/CustomInputGUIs/zipball/31e9f653647690a51bee8993c5ba8460cb46ebaa",
+                "reference": "31e9f653647690a51bee8993c5ba8460cb46ebaa",
                 "shasum": ""
             },
             "require": {
@@ -597,7 +631,7 @@
             },
             "autoload": {
                 "psr-4": {
-                    "srag\\CustomInputGUIs\\Litello\\": "src/"
+                    "srag\\CustomInputGUIs\\": "src/"
                 },
                 "classmap": [
                     "src/MultiSelectSearchNewInputGUI/class.ObjectChildrenAjaxAutoCompleteCtrl.php",
@@ -612,14 +646,14 @@
             ],
             "authors": [
                 {
-                    "name": "studer + raimann ag - Team Custom 1",
-                    "email": "support-custom1@studer-raimann.ch",
-                    "homepage": "https://studer-raimann.ch",
+                    "name": "fluxlabs",
+                    "email": "support@fluxlabs.ch",
+                    "homepage": "https://fluxlabs.ch",
                     "role": "Developer"
                 }
             ],
             "description": "Custom Input-GUI's",
-            "homepage": "https://github.com/fluxfw/CustomInputGUIs",
+            "homepage": "https://github.com/fluxapps/CustomInputGUIs",
             "keywords": [
                 "ILIAS",
                 "PropertyForm",
@@ -627,20 +661,23 @@
                 "input",
                 "table"
             ],
-            "time": "2021-03-29T07:11:05+00:00"
+            "support": {
+                "source": "https://github.com/fluxapps/CustomInputGUIs/tree/v0.42.8"
+            },
+            "time": "2021-06-04T08:20:40+00:00"
         },
         {
             "name": "srag/devtools",
-            "version": "1.2.9",
+            "version": "1.2.11",
             "source": {
                 "type": "git",
-                "url": "https://github.com/fluxfw/DevTools.git",
-                "reference": "664fb2a6166909b6d8366b1cc643fc236b2c80f4"
+                "url": "https://github.com/fluxapps/DevTools.git",
+                "reference": "b2b05099ca3c5d7aa0d9c7767bfd9d0368225085"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fluxfw/DevTools/zipball/664fb2a6166909b6d8366b1cc643fc236b2c80f4",
-                "reference": "664fb2a6166909b6d8366b1cc643fc236b2c80f4",
+                "url": "https://api.github.com/repos/fluxapps/DevTools/zipball/b2b05099ca3c5d7aa0d9c7767bfd9d0368225085",
+                "reference": "b2b05099ca3c5d7aa0d9c7767bfd9d0368225085",
                 "shasum": ""
             },
             "require": {
@@ -662,7 +699,7 @@
             },
             "autoload": {
                 "psr-4": {
-                    "srag\\DevTools\\Litello\\": "src/"
+                    "srag\\DevTools\\": "src/"
                 },
                 "classmap": [
                     "src/class.DevToolsCtrl.php"
@@ -674,34 +711,37 @@
             ],
             "authors": [
                 {
-                    "name": "studer + raimann ag - Team Custom 1",
-                    "email": "support-custom1@studer-raimann.ch",
-                    "homepage": "https://studer-raimann.ch",
+                    "name": "fluxlabs",
+                    "email": "support@fluxlabs.ch",
+                    "homepage": "https://fluxlabs.ch",
                     "role": "Developer"
                 }
             ],
             "description": "Add some dev tools to ILIAS plugin config, if core dev mode is enabled, like reload ctrl structure",
-            "homepage": "https://github.com/fluxfw/DevTools",
+            "homepage": "https://github.com/fluxapps/DevTools",
             "keywords": [
                 "ILIAS",
                 "dev",
                 "plugin",
                 "tools"
             ],
-            "time": "2021-03-29T07:11:30+00:00"
+            "support": {
+                "source": "https://github.com/fluxapps/DevTools/tree/v1.2.11"
+            },
+            "time": "2021-06-04T08:21:18+00:00"
         },
         {
             "name": "srag/dic",
-            "version": "0.32.2",
+            "version": "0.32.4",
             "source": {
                 "type": "git",
-                "url": "https://github.com/fluxfw/DIC.git",
-                "reference": "0f16b0d52193cb7b094b8631e9c3b2367a061cac"
+                "url": "https://github.com/fluxapps/DIC.git",
+                "reference": "12ad676887c10a76128415471f393a1051fb8fbb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fluxfw/DIC/zipball/0f16b0d52193cb7b094b8631e9c3b2367a061cac",
-                "reference": "0f16b0d52193cb7b094b8631e9c3b2367a061cac",
+                "url": "https://api.github.com/repos/fluxapps/DIC/zipball/12ad676887c10a76128415471f393a1051fb8fbb",
+                "reference": "12ad676887c10a76128415471f393a1051fb8fbb",
                 "shasum": ""
             },
             "require": {
@@ -721,7 +761,7 @@
             },
             "autoload": {
                 "psr-4": {
-                    "srag\\DIC\\Litello\\": "src/"
+                    "srag\\DIC\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -730,34 +770,37 @@
             ],
             "authors": [
                 {
-                    "name": "studer + raimann ag - Team Custom 1",
-                    "email": "support-custom1@studer-raimann.ch",
-                    "homepage": "https://studer-raimann.ch",
+                    "name": "fluxlabs",
+                    "email": "support@fluxlabs.ch",
+                    "homepage": "https://fluxlabs.ch",
                     "role": "Developer"
                 }
             ],
             "description": "Use all ILIAS globals in your class",
-            "homepage": "https://github.com/fluxfw/DIC",
+            "homepage": "https://github.com/fluxapps/DIC",
             "keywords": [
                 "ILIAS",
                 "dic",
                 "globals",
                 "trait"
             ],
-            "time": "2021-03-23T12:50:35+00:00"
+            "support": {
+                "source": "https://github.com/fluxapps/DIC/tree/v0.32.4"
+            },
+            "time": "2021-06-04T08:21:42+00:00"
         },
         {
             "name": "srag/librariesnamespacechanger",
-            "version": "0.15.2",
+            "version": "0.15.4",
             "source": {
                 "type": "git",
-                "url": "https://github.com/fluxfw/LibrariesNamespaceChanger.git",
-                "reference": "cd3b0b6340fdc12ba7bfde0bcab3079d3b740483"
+                "url": "https://github.com/fluxapps/LibrariesNamespaceChanger.git",
+                "reference": "c9dba49e7f13cc2bd4d3b0ff3d5016c756212a97"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fluxfw/LibrariesNamespaceChanger/zipball/cd3b0b6340fdc12ba7bfde0bcab3079d3b740483",
-                "reference": "cd3b0b6340fdc12ba7bfde0bcab3079d3b740483",
+                "url": "https://api.github.com/repos/fluxapps/LibrariesNamespaceChanger/zipball/c9dba49e7f13cc2bd4d3b0ff3d5016c756212a97",
+                "reference": "c9dba49e7f13cc2bd4d3b0ff3d5016c756212a97",
                 "shasum": ""
             },
             "require": {
@@ -782,33 +825,36 @@
             ],
             "authors": [
                 {
-                    "name": "studer + raimann ag - Team Custom 1",
-                    "email": "support-custom1@studer-raimann.ch",
-                    "homepage": "https://studer-raimann.ch",
+                    "name": "fluxlabs",
+                    "email": "support@fluxlabs.ch",
+                    "homepage": "https://fluxlabs.ch",
                     "role": "Developer"
                 }
             ],
             "description": "Change namespace of libraries to plugin namespace",
-            "homepage": "https://github.com/fluxfw/LibrariesNamespaceChanger",
+            "homepage": "https://github.com/fluxapps/LibrariesNamespaceChanger",
             "keywords": [
                 "changer",
                 "libraries",
                 "namespace"
             ],
-            "time": "2021-03-23T12:47:58+00:00"
+            "support": {
+                "source": "https://github.com/fluxapps/LibrariesNamespaceChanger/tree/v0.15.4"
+            },
+            "time": "2021-06-04T08:23:01+00:00"
         },
         {
             "name": "srag/librarylanguageinstaller",
-            "version": "1.1.4",
+            "version": "1.1.6",
             "source": {
                 "type": "git",
-                "url": "https://github.com/fluxfw/LibraryLanguageInstaller.git",
-                "reference": "9c047ae156e503186169dc91a0c4a5910a0cccb0"
+                "url": "https://github.com/fluxapps/LibraryLanguageInstaller.git",
+                "reference": "d1836820739a6eb9610b4a54460ec3484aff6ea8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fluxfw/LibraryLanguageInstaller/zipball/9c047ae156e503186169dc91a0c4a5910a0cccb0",
-                "reference": "9c047ae156e503186169dc91a0c4a5910a0cccb0",
+                "url": "https://api.github.com/repos/fluxapps/LibraryLanguageInstaller/zipball/d1836820739a6eb9610b4a54460ec3484aff6ea8",
+                "reference": "d1836820739a6eb9610b4a54460ec3484aff6ea8",
                 "shasum": ""
             },
             "require": {
@@ -829,7 +875,7 @@
             },
             "autoload": {
                 "psr-4": {
-                    "srag\\LibraryLanguageInstaller\\Litello\\": "src/"
+                    "srag\\LibraryLanguageInstaller\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -838,34 +884,37 @@
             ],
             "authors": [
                 {
-                    "name": "studer + raimann ag - Team Custom 1",
-                    "email": "support-custom1@studer-raimann.ch",
-                    "homepage": "https://studer-raimann.ch",
+                    "name": "fluxlabs",
+                    "email": "support@fluxlabs.ch",
+                    "homepage": "https://fluxlabs.ch",
                     "role": "Developer"
                 }
             ],
             "description": "Install additional and external lang files for a plugin",
-            "homepage": "https://github.com/fluxfw/LibraryLanguageInstaller",
+            "homepage": "https://github.com/fluxapps/LibraryLanguageInstaller",
             "keywords": [
                 "ILIAS",
                 "installer",
                 "language",
                 "library"
             ],
-            "time": "2021-03-23T12:48:08+00:00"
+            "support": {
+                "source": "https://github.com/fluxapps/LibraryLanguageInstaller/tree/v1.1.6"
+            },
+            "time": "2021-06-04T08:23:14+00:00"
         },
         {
             "name": "srag/removeplugindataconfirm",
-            "version": "0.7.6",
+            "version": "0.7.8",
             "source": {
                 "type": "git",
-                "url": "https://github.com/fluxfw/RemovePluginDataConfirm.git",
-                "reference": "c9ef8dde2b8db1814c195cef620fb26d36703225"
+                "url": "https://github.com/fluxapps/RemovePluginDataConfirm.git",
+                "reference": "8aff5878054c8b79843701929aaab70a4fe6b9d5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fluxfw/RemovePluginDataConfirm/zipball/c9ef8dde2b8db1814c195cef620fb26d36703225",
-                "reference": "c9ef8dde2b8db1814c195cef620fb26d36703225",
+                "url": "https://api.github.com/repos/fluxapps/RemovePluginDataConfirm/zipball/8aff5878054c8b79843701929aaab70a4fe6b9d5",
+                "reference": "8aff5878054c8b79843701929aaab70a4fe6b9d5",
                 "shasum": ""
             },
             "require": {
@@ -887,7 +936,7 @@
             },
             "autoload": {
                 "psr-4": {
-                    "srag\\RemovePluginDataConfirm\\Litello\\": "src/"
+                    "srag\\RemovePluginDataConfirm\\": "src/"
                 },
                 "classmap": [
                     "src/class.RemovePluginDataConfirmCtrl.php"
@@ -899,14 +948,14 @@
             ],
             "authors": [
                 {
-                    "name": "studer + raimann ag - Team Custom 1",
-                    "email": "support-custom1@studer-raimann.ch",
-                    "homepage": "https://studer-raimann.ch",
+                    "name": "fluxlabs",
+                    "email": "support@fluxlabs.ch",
+                    "homepage": "https://fluxlabs.ch",
                     "role": "Developer"
                 }
             ],
             "description": "Demand if plugin data should be removed on uninstall",
-            "homepage": "https://github.com/fluxfw/RemovePluginDataConfirm",
+            "homepage": "https://github.com/fluxapps/RemovePluginDataConfirm",
             "keywords": [
                 "ILIAS",
                 "confirm",
@@ -914,20 +963,23 @@
                 "plugin",
                 "uninstall"
             ],
-            "time": "2021-03-29T07:10:46+00:00"
+            "support": {
+                "source": "https://github.com/fluxapps/RemovePluginDataConfirm/tree/v0.7.8"
+            },
+            "time": "2021-06-04T08:23:38+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
-            "version": "v1.22.1",
+            "version": "v1.23.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-mbstring.git",
-                "reference": "5232de97ee3b75b0360528dae24e73db49566ab1"
+                "reference": "2df51500adbaebdc4c38dea4c89a2e131c45c8a1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/5232de97ee3b75b0360528dae24e73db49566ab1",
-                "reference": "5232de97ee3b75b0360528dae24e73db49566ab1",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/2df51500adbaebdc4c38dea4c89a2e131c45c8a1",
+                "reference": "2df51500adbaebdc4c38dea4c89a2e131c45c8a1",
                 "shasum": ""
             },
             "require": {
@@ -939,7 +991,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "1.22-dev"
+                    "dev-main": "1.23-dev"
                 },
                 "thanks": {
                     "name": "symfony/polyfill",
@@ -977,6 +1029,9 @@
                 "portable",
                 "shim"
             ],
+            "support": {
+                "source": "https://github.com/symfony/polyfill-mbstring/tree/v1.23.0"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -991,7 +1046,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-01-22T09:19:47+00:00"
+            "time": "2021-05-27T09:27:20+00:00"
         }
     ],
     "packages-dev": [],
@@ -1004,5 +1059,5 @@
         "php": ">=7.2"
     },
     "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+    "plugin-api-version": "2.1.0"
 }

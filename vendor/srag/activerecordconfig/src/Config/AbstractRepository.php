@@ -11,8 +11,6 @@ use srag\DIC\Litello\DICTrait;
  * Class AbstractRepository
  *
  * @package srag\ActiveRecordConfig\Litello\Config
- *
- * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
 abstract class AbstractRepository
 {
@@ -50,8 +48,6 @@ abstract class AbstractRepository
      */
     public function getValue(string $name)
     {
-        $logger = self::dic()->logger()->root();
-        $logger->dump($this->getFields());
         if (isset($this->getFields()[$name])) {
             $field = $this->getFields()[$name];
             if (!is_array($field)) {

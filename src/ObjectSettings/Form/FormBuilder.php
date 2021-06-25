@@ -14,7 +14,6 @@ use srag\CustomInputGUIs\Litello\FormBuilder\AbstractFormBuilder;
  * @package minervis\Litello\ObjectSettings\Form
  *
  * @author Minervis GmbH <jephte.abijuru@minervis.com>
- * @author studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
 class FormBuilder extends AbstractFormBuilder
 {
@@ -64,7 +63,8 @@ class FormBuilder extends AbstractFormBuilder
         $data = [
             "title"       => $this->object->getTitle(),
             "description" => $this->object->getLongDescription(),
-            "online"      => $this->object->isOnline()
+            "online"      => $this->object->isOnline(),
+            "book_id"     => $this->object->getBookID()
         ];
 
         return $data;
@@ -79,7 +79,8 @@ class FormBuilder extends AbstractFormBuilder
         $fields = [
             "title"       => self::dic()->ui()->factory()->input()->field()->text(self::plugin()->translate("title", ilObjLitelloGUI::LANG_MODULE_SETTINGS))->withRequired(true),
             "description" => self::dic()->ui()->factory()->input()->field()->textarea(self::plugin()->translate("description", ilObjLitelloGUI::LANG_MODULE_SETTINGS)),
-            "online"      => self::dic()->ui()->factory()->input()->field()->checkbox(self::plugin()->translate("online", ilObjLitelloGUI::LANG_MODULE_SETTINGS))
+            "online"      => self::dic()->ui()->factory()->input()->field()->checkbox(self::plugin()->translate("online", ilObjLitelloGUI::LANG_MODULE_SETTINGS)),
+            "book_id"     => self::dic()->ui()->factory()->input()->field()->numeric(self::plugin()->translate("book_id", ilObjLitelloGUI::LANG_MODULE_SETTINGS))->withRequired(true)
         ];
 
         return $fields;
@@ -103,6 +104,7 @@ class FormBuilder extends AbstractFormBuilder
         $this->object->setTitle(strval($data["title"]));
         $this->object->setDescription(strval($data["description"]));
         $this->object->setOnline(boolval($data["online"]));
+        $this->object->setBookID(intval($data["book_id"]));
 
         $this->object->update();
     }

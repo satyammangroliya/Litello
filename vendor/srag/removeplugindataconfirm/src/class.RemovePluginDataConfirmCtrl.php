@@ -17,8 +17,6 @@ use srag\DIC\Litello\DICTrait;
  *
  * @package           srag\RemovePluginDataConfirm\Litello
  *
- * @author            studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
- *
  * @ilCtrl_isCalledBy srag\RemovePluginDataConfirm\Litello\RemovePluginDataConfirmCtrl: ilUIPluginRouterGUI
  */
 class RemovePluginDataConfirmCtrl

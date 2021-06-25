@@ -13,19 +13,18 @@ use srag\CustomInputGUIs\Litello\FormBuilder\AbstractFormBuilder;
  * @package minervis\Litello\Config\Form
  *
  * @author Minervis GmbH <jephte.abijuru@minervis.com>
- * @author studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
 class FormBuilder extends AbstractFormBuilder
 {
 
     use LitelloTrait;
 
-    const KEY_SOME = "some";
     const KEY_CUSTOMER = "customer";
     const KEY_ACCESS_KEY= "access_key";
     const KEY_SECRET_KEY="secret_key";
     const KEY_PROXY_HOST = "proxy_host";
     const KEY_PROXY_PORT = "proxy_port";
+    const KEY_WEBREADER = "webreader";
 
     const PLUGIN_CLASS_NAME = ilLitelloPlugin::class;
 
@@ -65,7 +64,8 @@ class FormBuilder extends AbstractFormBuilder
             self::KEY_ACCESS_KEY => $config->getValue(self::KEY_ACCESS_KEY),
             self::KEY_SECRET_KEY => $config->getValue(self::KEY_SECRET_KEY),
             self::KEY_PROXY_HOST => $config->getValue(self::KEY_PROXY_HOST),
-            self::KEY_PROXY_PORT => $config->getValue(self::KEY_PROXY_PORT)
+            self::KEY_PROXY_PORT => $config->getValue(self::KEY_PROXY_PORT),
+            self::KEY_WEBREADER  => $config->getValue(self::KEY_WEBREADER)
         ];
 
         return $data;
@@ -86,7 +86,9 @@ class FormBuilder extends AbstractFormBuilder
             self::KEY_PROXY_HOST  => $input_fields->text($this->configTranslate( self::KEY_PROXY_HOST))
                                     ->withByLine($this->configTranslate("proxy_info")),
             self::KEY_PROXY_PORT => $input_fields->numeric($this->configTranslate(self::KEY_PROXY_PORT))
-                                    ->withByline($this->configTranslate("proxy_info"))
+                                    ->withByline($this->configTranslate("proxy_info")),
+            self::KEY_WEBREADER  => $input_fields->text($this->configTranslate(self::KEY_WEBREADER))
+                                    ->withByline($this->configTranslate("webreader_info")),                       
             
 
         ];

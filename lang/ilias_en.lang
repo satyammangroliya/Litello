@@ -21,6 +21,8 @@ config_secret_key#:#Secret Key
 config_proxy_host#:#Proxy Host
 config_proxy_info#:#Fill this field only  if a proxy is in use, otherwise leave it empty
 config_proxy_port#:#Proxy Port
+settings_webreader#:#Webreader
+settings_webreader_info#:# Only fill this, in case Litello has offered a special webreader(e.g.: globus.webreader.com)
 object_manage_contents#:#Edit
 object_offline#:#Offline
 object_permission_denied#:#Permission denied
@@ -33,3 +35,5 @@ settings_save#:#Save
 settings_saved#:#Settings saved
 settings_settings#:#Settings
 settings_title#:#Title
+settings_show#:# Go to Litello eBook
+
