@@ -8,6 +8,7 @@ use ilLitelloPlugin;
 use ilObjLitello;
 use ilObjLitelloGUI;
 use srag\DIC\Litello\DICTrait;
+use minervis\Litello\ObjectSettings\SettingsGUI;
 
 /**
  * Class Factory
@@ -74,5 +75,16 @@ final class Factory
         $object_settings = new ObjectSettings();
 
         return $object_settings;
+    }
+    /**
+     * @param SettingsGUI          $parent
+     * @param ObjectSettings       $settings
+     *
+     * @return SettingsGUI
+     */
+    public function newPropertyFormInstance($parent, ObjectSettings $settings, ilObjLitello $object) : SettingsGUI
+    {
+        $form = new SettingsGUI($parent, $settings, $object);
+        return $form;
     }
 }

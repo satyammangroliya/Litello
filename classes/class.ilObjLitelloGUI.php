@@ -28,7 +28,9 @@ class ilObjLitelloGUI extends ilObjectPluginGUI
     const CMD_PERMISSIONS = "perm";
     const CMD_SETTINGS = "settings";
     const CMD_SETTINGS_STORE = "settingsStore";
+    const CMD_PROPERTIES_STORE = "propertiesStore";
     const CMD_SHOW_CONTENTS = "showContents";
+    const CMD_PROPERTIES = "properties";
     const LANG_MODULE_OBJECT = "object";
     const LANG_MODULE_SETTINGS = "settings";
     const PLUGIN_CLASS_NAME = ilLitelloPlugin::class;
@@ -36,6 +38,7 @@ class ilObjLitelloGUI extends ilObjectPluginGUI
     const TAB_PERMISSIONS = "perm_settings";
     const TAB_SETTINGS = "settings";
     const TAB_SHOW_CONTENTS = "show_contents";
+    const TAB_PROPERTIES = "properties";
     /**
      * @var ilObjLitello
      */
@@ -71,7 +74,7 @@ class ilObjLitelloGUI extends ilObjectPluginGUI
      */
     public function getAfterCreationCmd() : string
     {
-        return self::getStartCmd();
+        return self::CMD_PROPERTIES;
     }
 
 
@@ -109,6 +112,7 @@ class ilObjLitelloGUI extends ilObjectPluginGUI
      */
     public function performCommand(string $cmd) : void
     {
+       
         self::dic()->help()->setScreenIdComponent(ilLitelloPlugin::PLUGIN_ID);
         self::dic()->ui()->mainTemplate()->setPermanentLink(ilLitelloPlugin::PLUGIN_ID, $this->object->getRefId());
 
@@ -129,6 +133,8 @@ class ilObjLitelloGUI extends ilObjectPluginGUI
                     case self::CMD_MANAGE_CONTENTS:
                     case self::CMD_SETTINGS:
                     case self::CMD_SETTINGS_STORE:
+                    case self::CMD_PROPERTIES_STORE:
+                    case self::CMD_PROPERTIES:
                         // Write commands
                         if (!ilObjLitelloAccess::hasWriteAccess()) {
                             ilObjLitelloAccess::redirectNonAccess($this);
@@ -177,11 +183,13 @@ class ilObjLitelloGUI extends ilObjectPluginGUI
             ->getLinkTarget($this, self::CMD_SHOW_CONTENTS));
 
         if (ilObjLitelloAccess::hasWriteAccess()) {
-            self::dic()->tabs()->addTab(self::TAB_CONTENTS, self::plugin()->translate("manage_contents", self::LANG_MODULE_OBJECT), self::dic()
-                ->ctrl()->getLinkTarget($this, self::CMD_MANAGE_CONTENTS));
+            /*self::dic()->tabs()->addTab(self::TAB_CONTENTS, self::plugin()->translate("manage_contents", self::LANG_MODULE_OBJECT), self::dic()
+                ->ctrl()->getLinkTarget($this, self::CMD_MANAGE_CONTENTS));*/
 
-            self::dic()->tabs()->addTab(self::TAB_SETTINGS, self::plugin()->translate("settings", self::LANG_MODULE_SETTINGS), self::dic()->ctrl()
-                ->getLinkTarget($this, self::CMD_SETTINGS));
+            /*self::dic()->tabs()->addTab(self::TAB_SETTINGS, self::plugin()->translate("settings", self::LANG_MODULE_SETTINGS), self::dic()->ctrl()
+                ->getLinkTarget($this, self::CMD_SETTINGS));*/
+            self::dic()->tabs()->addTab(self::TAB_PROPERTIES, self::plugin()->translate("settings", self::LANG_MODULE_SETTINGS), self::dic()->ctrl()
+            ->getLinkTarget($this, self::CMD_PROPERTIES));
         }
 
         if (ilObjLitelloAccess::hasEditPermissionAccess()) {
@@ -201,13 +209,32 @@ class ilObjLitelloGUI extends ilObjectPluginGUI
      */
     protected function settings() : void
     {
+        
         self::dic()->tabs()->activateTab(self::TAB_SETTINGS);
 
         $form = self::litello()->objectSettings()->factory()->newFormBuilderInstance($this, $this->object);
+        //self::dic()->logger()->root()->dump($this->object);
 
         self::output()->output($form);
     }
+    /**
+     *
+     */
+    protected function properties() : void
+    {
+        
+        self::dic()->tabs()->activateTab(self::TAB_PROPERTIES);
+        $settings = self::litello()->objectSettings()->factory()->newInstance();
 
+        $form = self::litello()->objectSettings()->factory()->newPropertyFormInstance($this, $settings, $this->object);
+        //self::dic()->logger()->root()->dump($this->object_service->commonSettings()->legacyForm($form, $this->object));
+        if ($this->object && $form){
+            $form = $this->object_service->commonSettings()->legacyForm($form, $this->object)->addTileImage();
+        }
+        
+
+        self::output()->output($form);
+    }
 
     /**
      *
@@ -227,6 +254,32 @@ class ilObjLitelloGUI extends ilObjectPluginGUI
         ilUtil::sendSuccess(self::plugin()->translate("saved", self::LANG_MODULE_SETTINGS), true);
 
         self::dic()->ctrl()->redirect($this, self::CMD_SETTINGS);
+    }
+
+    /**
+     *
+     */
+    protected function propertiesStore() : void
+    {
+        self::dic()->tabs()->activateTab(self::TAB_PROPERTIES);
+
+        $settings = self::litello()->objectSettings()->factory()->newInstance();
+
+        $form = self::litello()->objectSettings()->factory()->newPropertyFormInstance($this, $settings, $this->object);
+
+        if (!$form->storeForm()) {
+            self::output()->output($form);
+
+            return;
+        }
+        if ($this->object && $form){
+            $this->object_service->commonSettings()->legacyForm($form, $this->object)->saveTileImage();
+        }
+        
+
+        ilUtil::sendSuccess(self::plugin()->translate("saved", self::LANG_MODULE_SETTINGS), true);
+
+        self::dic()->ctrl()->redirect($this, self::CMD_PROPERTIES);
     }
 
 
@@ -263,14 +316,23 @@ class ilObjLitelloGUI extends ilObjectPluginGUI
         global $tpl;
         self::dic()->tabs()->activateTab(self::TAB_SHOW_CONTENTS);
         require_once "./Customizing/global/plugins/Services/Repository/RepositoryObject/Litello/classes/class.ilLitelloAPI.php";
-        $helper= new ilLitelloAPI($this->object);
-        $auth_link= $helper->getAuthenticatedWebreaderURL();
-        $t =new ilTemplate("./Customizing/global/plugins/Services/Repository/RepositoryObject/Litello/templates/tpl.litello.html",true, true);
-        $t->setVariable("LITELLO_AUTHENTICATE_LINK", $auth_link);
-        $t->setVariable("OPEN_BOOK_LINK_TEXT", self::plugin()->translate("show", self::LANG_MODULE_SETTINGS));
+        $helper= '';
+        try{
+            $helper= new ilLitelloAPI($this->object);
+            $auth_link= $helper->getAuthenticatedWebreaderURL();
+            $t =new ilTemplate("./Customizing/global/plugins/Services/Repository/RepositoryObject/Litello/templates/tpl.litello.html",true, true);
+            $t->setVariable("LITELLO_AUTHENTICATE_LINK", $auth_link);
+            $t->setVariable("OPEN_BOOK_LINK_TEXT", self::plugin()->translate("show", self::LANG_MODULE_SETTINGS));
+            $this->show($t->get());
+        }catch(\Exception $e){
+            ilUtil::sendFailure("E-Buch nicht erreichbar. Bitte dem Administrator Beschied sagen", true);            
+            $this->show('');
+
+        }
+        
 
 
         // TODO: Implement showContents
-        $this->show($t->get());
+       
     }
 }
