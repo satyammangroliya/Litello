@@ -28,6 +28,7 @@ object_offline#:#Offline
 object_permission_denied#:#Permission denied
 object_show_contents#:#Contents
 object_status#:#Status
+object_info_short#:#Info
 settings_cancel#:#Cancel
 settings_description#:#Description
 settings_online#:#Online

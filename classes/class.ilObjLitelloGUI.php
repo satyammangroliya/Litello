@@ -39,6 +39,7 @@ class ilObjLitelloGUI extends ilObjectPluginGUI
     const TAB_SETTINGS = "settings";
     const TAB_SHOW_CONTENTS = "show_contents";
     const TAB_PROPERTIES = "properties";
+    const TAB_INFO = 'info_short';
     /**
      * @var ilObjLitello
      */
@@ -50,11 +51,7 @@ class ilObjLitelloGUI extends ilObjectPluginGUI
      */
     public static function getStartCmd() : string
     {
-        if (ilObjLitelloAccess::hasWriteAccess()) {
-            return self::CMD_MANAGE_CONTENTS;
-        } else {
-            return self::CMD_SHOW_CONTENTS;
-        }
+        return self::CMD_SHOW_CONTENTS;
     }
 
 
@@ -170,7 +167,7 @@ class ilObjLitelloGUI extends ilObjectPluginGUI
         self::dic()->tabs()->activateTab(self::TAB_CONTENTS);
 
         // TODO: Implement manageContents
-        $this->show("");
+        $this->showContents();
     }
 
 
@@ -181,13 +178,10 @@ class ilObjLitelloGUI extends ilObjectPluginGUI
     {
         self::dic()->tabs()->addTab(self::TAB_SHOW_CONTENTS, self::plugin()->translate("show_contents", self::LANG_MODULE_OBJECT), self::dic()->ctrl()
             ->getLinkTarget($this, self::CMD_SHOW_CONTENTS));
+        self::dic()->tabs()->addTab(self::TAB_INFO, self::plugin()->translate(self::TAB_INFO, self::LANG_MODULE_OBJECT),self::dic()->ctrl()
+        ->getLinkTargetByClass(ilInfoScreenGUI::class));        
 
         if (ilObjLitelloAccess::hasWriteAccess()) {
-            /*self::dic()->tabs()->addTab(self::TAB_CONTENTS, self::plugin()->translate("manage_contents", self::LANG_MODULE_OBJECT), self::dic()
-                ->ctrl()->getLinkTarget($this, self::CMD_MANAGE_CONTENTS));*/
-
-            /*self::dic()->tabs()->addTab(self::TAB_SETTINGS, self::plugin()->translate("settings", self::LANG_MODULE_SETTINGS), self::dic()->ctrl()
-                ->getLinkTarget($this, self::CMD_SETTINGS));*/
             self::dic()->tabs()->addTab(self::TAB_PROPERTIES, self::plugin()->translate("settings", self::LANG_MODULE_SETTINGS), self::dic()->ctrl()
             ->getLinkTarget($this, self::CMD_PROPERTIES));
         }
@@ -213,7 +207,6 @@ class ilObjLitelloGUI extends ilObjectPluginGUI
         self::dic()->tabs()->activateTab(self::TAB_SETTINGS);
 
         $form = self::litello()->objectSettings()->factory()->newFormBuilderInstance($this, $this->object);
-        //self::dic()->logger()->root()->dump($this->object);
 
         self::output()->output($form);
     }
@@ -227,7 +220,6 @@ class ilObjLitelloGUI extends ilObjectPluginGUI
         $settings = self::litello()->objectSettings()->factory()->newInstance();
 
         $form = self::litello()->objectSettings()->factory()->newPropertyFormInstance($this, $settings, $this->object);
-        //self::dic()->logger()->root()->dump($this->object_service->commonSettings()->legacyForm($form, $this->object));
         if ($this->object && $form){
             $form = $this->object_service->commonSettings()->legacyForm($form, $this->object)->addTileImage();
         }
@@ -329,10 +321,6 @@ class ilObjLitelloGUI extends ilObjectPluginGUI
             $this->show('');
 
         }
-        
-
-
-        // TODO: Implement showContents
        
     }
 }
