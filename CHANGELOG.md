@@ -5,3 +5,5 @@
     - Add a Tile image(Kachelbild)
 ### 0.1.2 (06.04.22)
     - Fix Permissions: Users with Write Access are not directly redirected to content page when they open the book
+### 0.1.2 (20.05.22)
+    - Integrate learning progress
