@@ -906,6 +906,8 @@ return array(
     'Symfony\\Polyfill\\Mbstring\\Mbstring' => $vendorDir . '/symfony/polyfill-mbstring/Mbstring.php',
     'ilLitelloAPI' => $baseDir . '/classes/class.ilLitelloAPI.php',
     'ilLitelloConfigGUI' => $baseDir . '/classes/class.ilLitelloConfigGUI.php',
+    'ilLitelloLPCron' => $baseDir . '/classes/class.ilLitelloLPCron.php',
+    'ilLitelloLPStatus' => $baseDir . '/classes/class.ilLitelloLPStatus.php',
     'ilLitelloPlugin' => $baseDir . '/classes/class.ilLitelloPlugin.php',
     'ilObjLitello' => $baseDir . '/classes/class.ilObjLitello.php',
     'ilObjLitelloAccess' => $baseDir . '/classes/class.ilObjLitelloAccess.php',

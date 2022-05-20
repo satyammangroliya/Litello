@@ -1024,6 +1024,8 @@ class ComposerStaticInit007b5dc2e020dffa776a273d80f4b64c
         'Symfony\\Polyfill\\Mbstring\\Mbstring' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/Mbstring.php',
         'ilLitelloAPI' => __DIR__ . '/../..' . '/classes/class.ilLitelloAPI.php',
         'ilLitelloConfigGUI' => __DIR__ . '/../..' . '/classes/class.ilLitelloConfigGUI.php',
+        'ilLitelloLPCron' => __DIR__ . '/../..' . '/classes/class.ilLitelloLPCron.php',
+        'ilLitelloLPStatus' => __DIR__ . '/../..' . '/classes/class.ilLitelloLPStatus.php',
         'ilLitelloPlugin' => __DIR__ . '/../..' . '/classes/class.ilLitelloPlugin.php',
         'ilObjLitello' => __DIR__ . '/../..' . '/classes/class.ilObjLitello.php',
         'ilObjLitelloAccess' => __DIR__ . '/../..' . '/classes/class.ilObjLitelloAccess.php',

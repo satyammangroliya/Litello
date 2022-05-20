@@ -29,6 +29,7 @@ object_permission_denied#:#Zugriff verweigert
 object_show_contents#:#Inhalte
 object_status#:#Status
 object_info_short#:#Info
+object_learning_progress#:#Lernfortschritt
 settings_cancel#:#Abbrechen
 settings_description#:#Beschreibung
 settings_online#:#Online
@@ -38,3 +39,7 @@ settings_settings#:#Einstellungen
 settings_title#:#Titel
 settings_show#:# Zum Litello E-Buch
 settings_book_id#:# Buch Id
+cron_title#:# Litello Cron (Lernfortschritt)
+cron_description#:# holt Lernfortschrittsdaten vom Litello-Server ab und aktualisiert den Lernfortschritt in ILIAS
+settings_update_learning_progress#:# Lernfortschritt aktualisieren
+settings_learning_progress_updated#:# Lernfortschritt erfolgreich aktualisiert
