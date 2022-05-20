@@ -10,13 +10,31 @@ use srag\DIC\Litello\DICTrait;
  *
  * @author Minervis GmbH <jephte.abijuru@minervis.com>
  */
-class ilObjLitello extends ilObjectPlugin
+class ilObjLitello extends ilObjectPlugin implements ilLPStatusPluginInterface
 {
 
     use DICTrait;
     use LitelloTrait;
 
     const PLUGIN_CLASS_NAME = ilLitelloPlugin::class;
+
+    //Learning Progress Plugin
+	const LP_INACTIVE = 0;
+	const LP_Passed = 1;
+	const LP_Completed = 2;
+	const LP_CompletedAndPassed = 3;
+	const LP_CompletedOrPassed = 4;
+	const LP_UseScore = 8;
+	const LP_NotApplicable = 99;
+	// const LP_Failed = 3;
+	// const LP_ACTIVE = 1;
+	protected $lp_mode = self::LP_INACTIVE;
+
+    const MOVEON_COMPLETED = 'Completed';
+    const MOVEON_PASSED = 'Passed';
+    const MOVEON_COMPLETED_OR_PASSED = 'CompletedOrPassed';
+    const MOVEON_COMPLETED_AND_PASSED = 'CompletedAndPassed';
+    const MOVEON_NOT_APPLICABLE = 'NotApplicable';
     /**
      * @var ObjectSettings|null
      */
@@ -125,4 +143,52 @@ class ilObjLitello extends ilObjectPlugin
 
         self::litello()->objectSettings()->storeObjectSettings($new_obj->object_settings);
     }
+
+    public function getLPCompleted()
+    {
+        return ilLitelloLPStatus::getLPStatusDataFromDb($this->getId(), ilLPStatus::LP_STATUS_COMPLETED_NUM);        
+    }
+    /**
+     * @inheritDoc
+     */
+    public function getLPNotAttempted()
+    {
+        return ilLitelloLPStatus::getLPStatusDataFromDb($this->getId(), ilLPStatus::LP_STATUS_NOT_ATTEMPTED_NUM);
+    }
+    
+    /**
+     * @inheritDoc
+     */
+    public function getLPFailed()
+    {
+        return ilLitelloLPStatus::getLPStatusDataFromDb($this->getId(), ilLPStatus::LP_STATUS_FAILED_NUM);
+    }
+    
+    /**
+     * @inheritDoc
+     */
+    public function getLPInProgress(){
+        return ilLitelloLPStatus::getLPStatusDataFromDb($this->getId(), ilLPStatus::LP_STATUS_IN_PROGRESS_NUM);
+    }
+    
+    /**
+     * @inheritDoc
+     */
+    public function getLPStatusForUser($a_user_id)
+    {
+        return ilLitelloLPStatus::getLPDataForUserFromDb($this->getId(), $a_user_id);        
+    }
+	/**
+	 * Track access for learning progress
+	 */
+	public function trackAccess($track_external_access = false)
+	{
+        $user = self::dic()->user();
+		// track access for learning progress
+		if ($user->getId() != ANONYMOUS_USER_ID)
+		{
+			ilLitelloLPStatus::trackAccess($user->getId(),$this->getId(), $this->getRefId(), $track_external_access);
+		}
+	}
+
 }

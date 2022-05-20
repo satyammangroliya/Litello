@@ -28,6 +28,8 @@ object_offline#:#Offline
 object_permission_denied#:#Permission denied
 object_show_contents#:#Contents
 object_status#:#Status
+object_info_short#:#Info
+object_learning_progress#:#Learning Progress
 settings_cancel#:#Cancel
 settings_description#:#Description
 settings_online#:#Online
@@ -36,4 +38,9 @@ settings_saved#:#Settings saved
 settings_settings#:#Settings
 settings_title#:#Title
 settings_show#:# Go to Litello eBook
+settings_book_id#:# BookID
+cron_title#:# Litello Cron(Learning Progress)
+cron_description#:# fetches progress data from Litello server and updates ILIAS Learning Progress
+settings_update_learning_progress#:# update learning progress
+settings_learning_progress_updated#:# Learning Progress updated successfully
 

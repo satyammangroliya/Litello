@@ -17,7 +17,7 @@ class ilLitelloAPI
     private $webreader;
     private $logger;
     private $settings; 
-    public function __construct($object = null)
+    public function __construct($object = null, $force_auth = false)
     {
         global $DIC;
         $this->logger =$DIC->logger()->root();
@@ -28,8 +28,9 @@ class ilLitelloAPI
         $proxy_host = $this->settings->getValue("proxy_host");
         $proxy_port = $this->settings->getValue("proxy_port");
         $this->setUserID();
+        $this->object = $object;
         $bookID = $object->getBookID();
-        $this->client=  new LitelloClient($access_key, $secret_key, $this->userID, $customer, $proxy_host, $proxy_port,$bookID);
+        $this->client=  new LitelloClient($access_key, $secret_key, $this->userID, $customer, $proxy_host, $proxy_port,$bookID, $force_auth);
         $this->setWebreader();
         
         
@@ -48,7 +49,9 @@ class ilLitelloAPI
     {
         global $ilUser;
         if (DEVMODE){
-            $this->userID ="Demouser";
+            //$this->userID ="jephte";
+            $userLogin = $ilUser->getLogin();
+            $this->userID = "s.olinger@globus.net";
         }else{
             $userLogin = $ilUser->getLogin();
             $this->userID = $userLogin;
@@ -74,6 +77,11 @@ class ilLitelloAPI
     public function createBookURI(string $bookID)
     {
         
+    }
+
+    public function getProgressData(){
+        return $this->client->requestProgress(0, $this->object->getBookID());
+
     }
 
 

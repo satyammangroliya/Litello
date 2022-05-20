@@ -175,6 +175,7 @@ class ilObjLitelloAccess extends ilObjectPluginAccess
                     || self::dic()->access()->checkAccessOfUser($a_user_id, "write", "", $a_ref_id));
 
             case "write":
+                return boolval(self::dic()->access()->checkAccessOfUser($a_user_id, "write", "", $a_ref_id));
             case "edit_permission":
             default:
                 return boolval(self::dic()->access()->checkAccessOfUser($a_user_id, $a_permission, "", $a_ref_id));
