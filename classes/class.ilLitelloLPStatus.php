@@ -60,9 +60,9 @@ class ilLitelloLPStatus extends ilLPStatusPlugin
         ilChangeEvent::_recordReadEvent('xlto', $a_ref_id, $a_obj_id, $a_user_id);
 
         $status = self::getLPDataForUser($a_obj_id, $a_user_id);
-        if ($status == self::LP_STATUS_NOT_ATTEMPTED_NUM)
+        if ($status == self::LP_STATUS_NOT_ATTEMPTED_NUM || $status == self::LP_STATUS_IN_PROGRESS_NUM)
         {
-            $status = $track_external_access ? self::LP_STATUS_IN_PROGRESS_NUM : self::LP_STATUS_NOT_ATTEMPTED_NUM;
+            //$status = $track_external_access ? self::LP_STATUS_IN_PROGRESS_NUM : self::LP_STATUS_NOT_ATTEMPTED_NUM;
             self::writeStatus($a_obj_id, $a_user_id, $status);
             self::raiseEventStatic($a_obj_id, $a_user_id, $status,
                 self::getPercentageForUser($a_obj_id, $a_user_id));
@@ -118,7 +118,8 @@ class ilLitelloLPStatus extends ilLPStatusPlugin
             $obj_id = ObjectSettings::where(["book_id" => $userlp->bookId])->first()->getObjId();
             if(!$obj_id || !$usr_id || $usr_id == 0) continue;
             $status = boolval($userlp->opened) ? self::LP_STATUS_COMPLETED_NUM : self::LP_STATUS_IN_PROGRESS_NUM;
-            if (self::getLPDataForUser($obj_id, $usr_id) == self::LP_STATUS_NOT_ATTEMPTED_NUM){
+            $ilias_lp_status = self::getLPDataForUser($obj_id, $usr_id);
+            if ($ilias_lp_status == self::LP_STATUS_NOT_ATTEMPTED_NUM || $ilias_lp_status == self::LP_STATUS_IN_PROGRESS_NUM){
                 //
                 self::trackAccess($usr_id,$obj_id, $object->getRefId(),true);
             }
