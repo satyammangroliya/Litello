@@ -49,9 +49,7 @@ class ilLitelloAPI
     {
         global $ilUser;
         if (DEVMODE){
-            //$this->userID ="jephte";
-            $userLogin = $ilUser->getLogin();
-            $this->userID = "s.olinger@globus.net";
+            $this->userID ="a.rashid@globus.net";
         }else{
             $userLogin = $ilUser->getLogin();
             $this->userID = $userLogin;

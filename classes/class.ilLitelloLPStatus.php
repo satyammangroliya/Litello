@@ -57,7 +57,7 @@ class ilLitelloLPStatus extends ilLPStatusPlugin
     public static function trackAccess($a_user_id, $a_obj_id, $a_ref_id, $track_external_access = false)
     {
         require_once('Services/Tracking/classes/class.ilChangeEvent.php');
-        ilChangeEvent::_recordReadEvent('xxcf', $a_ref_id, $a_obj_id, $a_user_id);
+        ilChangeEvent::_recordReadEvent('xlto', $a_ref_id, $a_obj_id, $a_user_id);
 
         $status = self::getLPDataForUser($a_obj_id, $a_user_id);
         if ($status == self::LP_STATUS_NOT_ATTEMPTED_NUM)
@@ -118,9 +118,9 @@ class ilLitelloLPStatus extends ilLPStatusPlugin
             $obj_id = ObjectSettings::where(["book_id" => $userlp->bookId])->first()->getObjId();
             if(!$obj_id || !$usr_id || $usr_id == 0) continue;
             $status = boolval($userlp->opened) ? self::LP_STATUS_COMPLETED_NUM : self::LP_STATUS_IN_PROGRESS_NUM;
-            if (self::getLPDataForUser($obj_id, $usr_id) == self::LP_STATUS_NOT_ATTEMPTED_NUM && $status == self::LP_STATUS_COMPLETED_NUM){
+            if (self::getLPDataForUser($obj_id, $usr_id) == self::LP_STATUS_NOT_ATTEMPTED_NUM){
                 //
-                continue;
+                self::trackAccess($usr_id,$obj_id, $object->getRefId(),true);
             }
             $percentage = ($status == self::LP_STATUS_COMPLETED_NUM) ? 1.0 : 0.0;
             self::trackResult($usr_id, $obj_id, $status, $percentage);
