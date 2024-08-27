@@ -74,7 +74,7 @@ class ilLitelloLPCron extends ilCronJob
     /**
      * @return int
      */
-    public function getDefaultScheduleType() : int
+    public function getDefaultScheduleType() : ILIAS\Cron\Schedule\CronJobScheduleType
     {
         return ilCronJob::SCHEDULE_TYPE_DAILY;
     }
@@ -83,7 +83,7 @@ class ilLitelloLPCron extends ilCronJob
     /**
      * @return null
      */
-    public function getDefaultScheduleValue()
+    public function getDefaultScheduleValue() : ?int 
     {
         return 1;
     }

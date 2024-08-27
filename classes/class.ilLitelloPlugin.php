@@ -26,15 +26,19 @@ class ilLitelloPlugin extends ilRepositoryObjectPlugin
     /**
      * @var self|null
      */
+
     protected static $instance = null;
-
-
+    public static ?ilComponentRepositoryWrite $cached_component_repository = null;
+    public static $cached_id = 0;
     /**
      * ilLitelloPlugin constructor
      */
-    public function __construct()
+    public function __construct(ilDBInterface $db, ilComponentRepositoryWrite $component_repository, string $id)
     {
-        parent::__construct();
+        parent::__construct($db, $component_repository, $id);
+        self::$cached_id = $id;
+        self::$cached_component_repository = $component_repository;
+
     }
 
 
@@ -44,10 +48,22 @@ class ilLitelloPlugin extends ilRepositoryObjectPlugin
     public static function getInstance() : self
     {
         if (self::$instance === null) {
-            self::$instance = new self();
+            self::$instance = new self(self::ildic()->database(), self::$cached_component_repository, self::$cached_id);
         }
 
         return self::$instance;
+    }
+
+    /**
+     * Returns the Dependency Injection Container (DIC)
+     *
+     * @return \ILIAS\DI\Container
+     */
+    public static function ildic() : \ILIAS\DI\Container
+    {
+        global $DIC;
+
+        return $DIC;
     }
 
 

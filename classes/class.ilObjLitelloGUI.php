@@ -1,5 +1,6 @@
 <?php
-include_once("./Services/Repository/classes/class.ilObjectPluginGUI.php"); 
+include_once("./Services/Repository/PluginSlot/class.ilObjectPluginGUI.php"); 
+
 
 use minervis\Litello\Utils\LitelloTrait;
 use srag\DIC\Litello\DICTrait;
@@ -51,7 +52,7 @@ class ilObjLitelloGUI extends ilObjectPluginGUI
     /**
      * @var ilObjLitello
      */
-    public $object;
+    public ?ilObject $object;
 
 
     /**
@@ -441,7 +442,7 @@ class ilObjLitelloGUI extends ilObjectPluginGUI
         $btn->setCaption(self::plugin()->translate("update_learning_progress", self::LANG_MODULE_SETTINGS), false);
         return $btn;
     }
-    public function infoScreen()
+    public function infoScreen() : void
     {
         $dic = self::dic();
         $lng = $this->lng;

@@ -35,7 +35,7 @@ class ConfigCtrl
      */
     public function __construct()
     {
-
+        error_log("ConfigCtrl class initialized");
     }
 
 

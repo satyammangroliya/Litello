@@ -55,7 +55,7 @@ class ilObjLitello extends ilObjectPlugin implements ilLPStatusPluginInterface
     /**
      * @inheritDoc
      */
-    public function doCreate() : void
+    public function doCreate(bool $clone_mode = false): void
     {
         $this->object_settings = self::litello()->objectSettings()->factory()->newInstance();
 
@@ -144,14 +144,14 @@ class ilObjLitello extends ilObjectPlugin implements ilLPStatusPluginInterface
         self::litello()->objectSettings()->storeObjectSettings($new_obj->object_settings);
     }
 
-    public function getLPCompleted()
+    public function getLPCompleted() : array
     {
         return ilLitelloLPStatus::getLPStatusDataFromDb($this->getId(), ilLPStatus::LP_STATUS_COMPLETED_NUM);        
     }
     /**
      * @inheritDoc
      */
-    public function getLPNotAttempted()
+    public function getLPNotAttempted() : array
     {
         return ilLitelloLPStatus::getLPStatusDataFromDb($this->getId(), ilLPStatus::LP_STATUS_NOT_ATTEMPTED_NUM);
     }
@@ -159,7 +159,7 @@ class ilObjLitello extends ilObjectPlugin implements ilLPStatusPluginInterface
     /**
      * @inheritDoc
      */
-    public function getLPFailed()
+    public function getLPFailed() : array
     {
         return ilLitelloLPStatus::getLPStatusDataFromDb($this->getId(), ilLPStatus::LP_STATUS_FAILED_NUM);
     }
@@ -167,14 +167,14 @@ class ilObjLitello extends ilObjectPlugin implements ilLPStatusPluginInterface
     /**
      * @inheritDoc
      */
-    public function getLPInProgress(){
+    public function getLPInProgress() : array {
         return ilLitelloLPStatus::getLPStatusDataFromDb($this->getId(), ilLPStatus::LP_STATUS_IN_PROGRESS_NUM);
     }
     
     /**
      * @inheritDoc
      */
-    public function getLPStatusForUser($a_user_id)
+    public function getLPStatusForUser (int $a_user_id): int
     {
         return ilLitelloLPStatus::getLPDataForUserFromDb($this->getId(), $a_user_id);        
     }

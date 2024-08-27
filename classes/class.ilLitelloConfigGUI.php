@@ -12,8 +12,11 @@ use srag\DIC\Litello\DICTrait;
  *
  *
  * @author Minervis GmbH <jephte.abijuru@minervis.com>
- *
+ * @version $Id$
+ * @ilCtrl_IsCalledBy ilLitelloConfigGUI: ilObjComponentSettingsGUI
  * @ilCtrl_isCalledBy srag\DevTools\Litello\DevToolsCtrl: ilLitelloConfigGUI
+ * @ilCtrl_Calls minervis\Litello\Config\ConfigCtrl: ilLitelloConfigGUI
+ * @ilCtrl_Calls  ilLitelloConfigGUI: minervis\Litello\Config\ConfigCtrl 
  */
 class ilLitelloConfigGUI extends ilPluginConfigGUI
 {
